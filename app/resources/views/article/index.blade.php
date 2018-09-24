@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Article</div>
-                <div class="card-body"> 
+                <div class="card-body">
                     @foreach ($articles as $article)
                     <article class="mb-4">
                         <h4 class="card-title">{{ $article->title }}</h4>
@@ -15,6 +15,7 @@
                         <a href="/article/edit/{{ $article->id }}" class="card-link">Edit</a>
                     </article>
                     @endforeach
+                    {{ $articles->links() }}
                </div>
             </div>
         </div>

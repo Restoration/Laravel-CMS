@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Article;
 
 class ArticleController extends Controller
 {
     public function index() {
-        $articles = Article::all();
+        $articles = DB::table('articles')->paginate(10);
         return view('article.index', ['articles' => $articles]);
     }
 
