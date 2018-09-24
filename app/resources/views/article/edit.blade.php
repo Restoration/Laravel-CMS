@@ -18,6 +18,7 @@
                             <label for="bodyInput">Message</label>
                             <textarea class="form-control" id="bodyInput" rows="3" name="body">{{ $article->body }}</textarea>
                         </div>
+                        <a href="/article/delete/{{ $article->id }}" class="btn btn-danger">Delete</a>
                         <button type="submit" class="btn btn-primary">Send</button>
                     </form>
                 </div>

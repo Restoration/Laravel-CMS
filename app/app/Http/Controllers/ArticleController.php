@@ -35,4 +35,14 @@ class ArticleController extends Controller
         $article->save();
         return view('article.complete');
     }
+
+    public function confirm(Request $request, $id) {
+        $article = Article::find($id);
+        return view('article.confirm', ['article' => $article]);
+    }
+
+    public function delete(Request $request) {
+        Article::destroy($request->id);
+        return view('article.complete');
+    }
 }

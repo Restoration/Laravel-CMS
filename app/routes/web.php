@@ -23,3 +23,5 @@ Route::get('/article/create', 'ArticleController@create');
 Route::post('/article/create', 'ArticleController@store');
 Route::get('/article/edit/{id}', 'ArticleController@edit');
 Route::post('/article/edit', 'ArticleController@update');
+Route::get('/article/delete/{id}', 'ArticleController@confirm');
+Route::post('/article/delete', 'ArticleController@delete');
