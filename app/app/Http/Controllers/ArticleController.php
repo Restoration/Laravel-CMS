@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Article;
+use App\Http\Controllers\ValidateController as Validate;
 
 class ArticleController extends Controller
 {
@@ -19,6 +20,11 @@ class ArticleController extends Controller
 
     public function store(Request $request) {
         $article = new Article;
+        $validate = new Validate;
+        $errors =  $validate->validateArticle($request);
+        if(!empty($errors)){
+            return view('article.create', ['errors' => $errors]);
+        }
         $article->title = $request->title;
         $article->body = $request->body;
         $article->save();
@@ -32,6 +38,11 @@ class ArticleController extends Controller
 
     public function update(Request $request) {
         $article = Article::find($request->id);
+        $validate = new Validate;
+        $errors =  $validate->validateArticle($request);
+        if(!empty($errors)){
+            return view('article.create', ['errors' => $errors]);
+        }
         $article->title = $request->title;
         $article->body = $request->body;
         $article->save();

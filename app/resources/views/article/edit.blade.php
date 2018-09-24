@@ -9,6 +9,15 @@
                 <div class="card-body">
                     <form method="post" action="/article/edit">
                         {{ csrf_field() }}
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <input type="hidden" class="form-control" name="id" value="{{ $article->id }}">
                         <div class="form-group">
                             <label for="titleInput">Title</label>
