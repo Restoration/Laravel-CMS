@@ -12,6 +12,7 @@
                         <h4 class="card-title">{{ $article->title }}</h4>
                         <h6 class="card-subtitle mb-2 text-muted">{{ $article->updated_at }}</h6>
                         <p class="card-text">{{ $article->body }}</p>
+                        <a href="/article/edit/{{ $article->id }}" class="card-link">Edit</a>
                     </article>
                     @endforeach
                </div>
