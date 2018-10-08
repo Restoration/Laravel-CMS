@@ -20,4 +20,53 @@ class ValidateController extends Controller
         }
         return "";
     }
+
+    /**
+     * Validate file
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function validateFile($request){
+        return $this->_validateFile($request);
+    }
+    private function _validateFile($request){
+        $validator = Validator::make($request->all(), [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        if ($validator->fails()) {
+            return $validator->messages();
+        }
+
+    }
+
+    /**
+     * Validate file information to insert database
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function validateFilePost($request){
+        return $this->_validateFilePost($request);
+    }
+    private function _validateFilePost($request){
+        $file = $request->file('image');
+        $data = array();
+        $in_public = 'uploads';
+        $local_path = realpath(public_path($in_public));
+        $data['name'] = $file->getClientOriginalName();
+        $data['extension'] = $file->getClientOriginalExtension();
+        $data['real_path'] = $local_path;
+        $data['size'] = $file->getSize();
+        $data['mime_type'] = $file->getMimeType();
+
+        $validator = Validator::make($data, [
+            'name' => 'required|max:255',
+            'extension' => 'required|max:255',
+            'real_path' => 'required|max:255',
+            'size' => 'required',
+            'mime_type' => 'required|max:255',
+        ]);
+        if ($validator->fails()) {
+            return $validator->messages();
+        }
+    }
 }
