@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 use App\File as Files;
 use App\Http\Controllers\ValidateController as Validate;
 
@@ -95,6 +96,8 @@ class FileController extends Controller
             File::delete($image_path);
             Files::destroy($request->id);
             return view('file/complete');
+        } else {
+            return Redirect::back()->withErrors(['Failed to delete the file.']);
         }
     }
 }

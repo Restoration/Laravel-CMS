@@ -9,6 +9,15 @@
                 <div class="card-body">
                     <form method="post" action="/file/delete">
                         {{ csrf_field() }}
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <input type="hidden" name="id" value="{{ $file->id }}">
                         <input type="hidden" name="image_path" value="{{ $file->real_path.'/'.$file->name  }}">
                         <div class="row">
