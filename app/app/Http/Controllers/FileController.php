@@ -24,14 +24,14 @@ class FileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function upload(Request $request){
-      $file = $request->file('image');
-      $name = $file->getClientOriginalName();
-      $extension = $file->getClientOriginalExtension();
-      $real_path = $file->getRealPath();
-      $size = $file->getSize();
-      $mime_type = $file->getMimeType();
-      $destinationPath = 'uploads';
-      $file->move($destinationPath,$file->getClientOriginalName());
-      return view('file/complete');
+        $file = $request->file('image');
+        $name = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+        $real_path = $file->getRealPath();
+        $size = $file->getSize();
+        $mime_type = $file->getMimeType();
+        $destinationPath = 'uploads';
+        $file->move($destinationPath,$file->getClientOriginalName());
+        return view('file/complete');
     }
 }
