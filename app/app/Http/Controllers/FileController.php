@@ -16,8 +16,7 @@ class FileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
         $images = DB::table('files')->paginate(10);
         return view('file/index',['images'=> $images]);
     }
@@ -27,8 +26,7 @@ class FileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function add()
-    {
+    public function add(){
         return view('file/add');
     }
 
@@ -73,5 +71,15 @@ class FileController extends Controller
         $file->save();
 
         return view('file/complete');
+    }
+
+    /**
+     * Show the file edit page
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Request $request, $id){
+        $file = File::find($id);
+        return view('file/edit', ['file' => $file]);
     }
 }

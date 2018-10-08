@@ -5,24 +5,22 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">File list</div>
+                <div class="card-header">File Edit</div>
                 <div class="card-body">
-                    <div class="row">
-                    @foreach ($images as $image)
+                     <div class="row">
                         <div class="col-md-4">
                             <div class="thumbnail">
-                                <a href="{{ $image->real_path.'/'.$image->name }}">
-                                    <img src="{{ $image->real_path.'/'.$image->name }}" alt="{{ $image->name }}">
+                                <a href="{{ $file->real_path.'/'.$file->name }}">
+                                    <img src="{{ $file->real_path.'/'.$file->name }}" alt="{{ $file->name }}">
                                     <div class="caption">
-                                        <p>{{ $image->name }}</p>
-                                        <a href="/file/edit/{{ $image->id }}" class="btn btn-success">Edit</a>
+                                        <p>{{ $file->name }}</p>
+                                        <a href="/file/delete?id={{ $file->id }}" class="btn btn-danger">Delete</a>
                                     </div>
                                 </a>
                             </div>
                         </div>
-                    @endforeach
-                    {{ $images->links() }}
                     </div>
+
                 </div>
             </div>
         </div>
