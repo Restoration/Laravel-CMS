@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\File;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
+use App\File as Files;
 use App\Http\Controllers\ValidateController as Validate;
 
 class FileController extends Controller
@@ -15,9 +18,18 @@ class FileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('file/index');
+    public function index(){
+        $images = DB::table('files')->paginate(10);
+        return view('file/index',['images'=> $images]);
+    }
+
+    /**
+     * Show the file upload page
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function add(){
+        return view('file/add');
     }
 
     /**
@@ -52,7 +64,7 @@ class FileController extends Controller
         $file->move($local_path,$file->getClientOriginalName());
 
         // Insert data to database
-        $file = new File;
+        $file = new Files;
         $file->name = $name;
         $file->extension = $extension;
         $file->real_path = $local_path;
@@ -61,5 +73,31 @@ class FileController extends Controller
         $file->save();
 
         return view('file/complete');
+    }
+
+    /**
+     * Show the file edit page
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Request $request, $id){
+        $file = Files::find($id);
+        return view('file/edit', ['file' => $file]);
+    }
+
+    /**
+     * The file delete process
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Request $request){
+        $image_path = $request->image_path;
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+            Files::destroy($request->id);
+            return view('file/complete');
+        } else {
+            return Redirect::back()->withErrors(['Failed to delete the file.']);
+        }
     }
 }
