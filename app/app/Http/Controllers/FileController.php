@@ -21,6 +21,16 @@ class FileController extends Controller
     }
 
     /**
+     * Show the file upload page
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function add()
+    {
+        return view('file/add');
+    }
+
+    /**
      * File upload process
      *
      * @return \Illuminate\Http\Response

@@ -5,32 +5,40 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">FileUploade</div>
+                <div class="card-header">File list</div>
                 <div class="card-body">
-                    <form method="post" action="/file/upload" enctype="multipart/form-data">
-                        {{ csrf_field() }}
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                                </ul>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="thumbnail">
+                          <a href="/w3images/lights.jpg">
+                            <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Lights" style="width:100%">
+                            <div class="caption">
+                              <p>Lorem ipsum...</p>
                             </div>
-                        @endif
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupFileAddon">Upload</span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" name="image"  class="custom-file-input" id="inputGroupFile" aria-describedby="inputGroupFileAddon">
-                                <label class="custom-file-label" for="inputGroupFile">Choose file</label>
-                            </div>
+                          </a>
                         </div>
-                        <div class="input-group-prepend">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="thumbnail">
+                          <a href="/w3images/nature.jpg">
+                            <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Lights" style="width:100%">
+                            <div class="caption">
+                              <p>Lorem ipsum...</p>
+                            </div>
+                          </a>
                         </div>
-                    </form>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="thumbnail">
+                          <a href="/w3images/fjords.jpg">
+                            <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Lights" style="width:100%">
+                            <div class="caption">
+                              <p>Lorem ipsum...</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
