@@ -5,6 +5,7 @@ This CMS is using Laravel that was made by basic system.
 
 ### function list  
 - CRUD
+- File Upload
 
 ## Install  
 ```
