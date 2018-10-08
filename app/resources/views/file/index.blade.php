@@ -8,36 +8,19 @@
                 <div class="card-header">File list</div>
                 <div class="card-body">
                     <div class="row">
-                      <div class="col-md-4">
-                        <div class="thumbnail">
-                          <a href="/w3images/lights.jpg">
-                            <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                              <p>Lorem ipsum...</p>
+                    @foreach ($images as $image)
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <a href="{{ $image->real_path.'/'.$image->name }}">
+                                    <img src="{{ $image->real_path.'/'.$image->name }}" alt="{{ $image->name }}">
+                                    <div class="caption">
+                                        <p>{{ $image->name }}</p>
+                                    </div>
+                                </a>
                             </div>
-                          </a>
                         </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="thumbnail">
-                          <a href="/w3images/nature.jpg">
-                            <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                              <p>Lorem ipsum...</p>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="thumbnail">
-                          <a href="/w3images/fjords.jpg">
-                            <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Lights" style="width:100%">
-                            <div class="caption">
-                              <p>Lorem ipsum...</p>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
+                    @endforeach
+                    {{ $images->links() }}
                     </div>
                 </div>
             </div>

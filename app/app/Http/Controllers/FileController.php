@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 use App\File;
 use App\Http\Controllers\ValidateController as Validate;
 
@@ -17,7 +18,8 @@ class FileController extends Controller
      */
     public function index()
     {
-        return view('file/index');
+        $images = DB::table('files')->paginate(10);
+        return view('file/index',['images'=> $images]);
     }
 
     /**
