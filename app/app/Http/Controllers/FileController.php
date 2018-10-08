@@ -28,20 +28,22 @@ class FileController extends Controller
         $file = $request->file('image');
         $name = $file->getClientOriginalName();
         $extension = $file->getClientOriginalExtension();
-        $real_path = $file->getRealPath();
+        //$real_path = $file->getRealPath();
         $size = $file->getSize();
         $mime_type = $file->getMimeType();
+        $destinationPath = 'uploads';
+        $in_public = 'uploads';
+        $local_path = realpath(public_path($in_public));
+        $file->move($local_path,$file->getClientOriginalName());
 
         $file = new File;
         $file->name = $name;
         $file->extension = $extension;
-        $file->real_path = $real_path;
+        $file->real_path = $local_path;
         $file->size = $size;
         $file->mime_type = $mime_type;
         $file->save();
 
-        //$destinationPath = 'uploads';
-        //$file->move($destinationPath,$file->getClientOriginalName());
         return view('file/complete');
     }
 }
