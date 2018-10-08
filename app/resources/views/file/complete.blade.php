@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="alert alert-primary" role="alert">
                         Updated file
-                        <a href="/file" class="btn btn-primary">Back to list page</a>
+                        <a href="/file/index" class="btn btn-primary">Back to list page</a>
                     </div>
                 </div>
             </div>
