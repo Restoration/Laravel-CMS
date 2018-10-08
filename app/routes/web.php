@@ -27,4 +27,5 @@ Route::post('/article/edit', 'ArticleController@update');
 Route::get('/article/delete/{id}', 'ArticleController@confirm');
 Route::post('/article/delete', 'ArticleController@delete');
 // File
-Route::get('/file/', 'FileController@index');
+Route::get('/file', 'FileController@index');
+Route::post('/file/upload', 'FileController@upload');

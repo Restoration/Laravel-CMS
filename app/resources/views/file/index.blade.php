@@ -7,18 +7,21 @@
             <div class="card">
                 <div class="card-header">FileUploade</div>
                 <div class="card-body">
-                    <div class="input-group mb-3">
+                    <form method="post" action="/file/upload" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupFileAddon">Upload</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" name="image"  class="custom-file-input" id="inputGroupFile" aria-describedby="inputGroupFileAddon">
+                                <label class="custom-file-label" for="inputGroupFile">Choose file</label>
+                            </div>
+                        </div>
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupFileAddon">Upload</span>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
                         </div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile" aria-describedby="inputGroupFileAddon">
-                            <label class="custom-file-label" for="inputGroupFile">Choose file</label>
-                        </div>
-                    </div>
-                    <div class="input-group-prepend">
-                        <button type="button" class="btn btn-primary btn-lg btn-block">Primary</button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
