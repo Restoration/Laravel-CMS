@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\File;
 
 class FileController extends Controller
 {
@@ -30,8 +31,17 @@ class FileController extends Controller
         $real_path = $file->getRealPath();
         $size = $file->getSize();
         $mime_type = $file->getMimeType();
-        $destinationPath = 'uploads';
-        $file->move($destinationPath,$file->getClientOriginalName());
+
+        $file = new File;
+        $file->name = $name;
+        $file->extension = $extension;
+        $file->real_path = $real_path;
+        $file->size = $size;
+        $file->mime_type = $mime_type;
+        $file->save();
+
+        //$destinationPath = 'uploads';
+        //$file->move($destinationPath,$file->getClientOriginalName());
         return view('file/complete');
     }
 }
