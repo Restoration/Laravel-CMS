@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Article;
-use App\Http\Controllers\ValidateController as Validate;
+use App\Extension\Validate;
 
 class ArticleController extends Controller
 {

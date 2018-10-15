@@ -4,6 +4,8 @@
 This CMS is using Laravel that was made by basic system.
 
 ### function list  
+- Login
+- User Register
 - CRUD
 - File Upload
 
