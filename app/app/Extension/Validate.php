@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Extension;
 
 use Illuminate\Http\Request;
 use Validator;
 
-class ValidateController extends Controller
+class Validate
 {
     public function validateArticle($request){
         return $this->_validateArticle($request);
