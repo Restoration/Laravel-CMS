@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 use App\File as Files;
-use App\Http\Controllers\ValidateController as Validate;
+use App\Extension\Validate;
 
 class FileController extends Controller
 {
@@ -42,13 +42,15 @@ class FileController extends Controller
         $validate = new Validate;
         $errors =  $validate->validateFile($request);
         if(!empty($errors)){
-            return view('file/index', ['errors' => $errors]);
+            $images = DB::table('files')->paginate(10);
+            return view('file/add', ['errors' => $errors,'images'=> $images]);
         }
 
         // Validate insert data to database
         $errors =  $validate->validateFilePost($request);
         if(!empty($errors)){
-            return view('file/index', ['errors' => $errors]);
+            $images = DB::table('files')->paginate(10);
+            return view('file/add', ['errors' => $errors,'images'=> $images]);
         }
 
         // Get file information
