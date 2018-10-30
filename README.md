@@ -8,6 +8,7 @@ This CMS is using Laravel that was made by basic system.
 - User Register
 - CRUD
 - File Upload
+- Contact
 
 ## Install  
 ```
@@ -21,6 +22,5 @@ $ php artisan migrate
 [MIT](https://github.com/Restoration/Laravel-CMS/blob/master/LICENSE)
 
 ## Author  
-Ryota Yamamoto  
+Ryota Yamamoto(http://developer-ryota.com)  
 [RyotArch](https://github.com/Restoration)  
-[Ryota.Y](http://developer-ryota.com)  
