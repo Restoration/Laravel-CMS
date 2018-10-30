@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Extension\Validate;
+use App\Mail\SendMailable;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -16,6 +18,8 @@ class ContactController extends Controller
         if(!empty($errors)){
             return view('contact.index', ['errors' => $errors]);
         }
+        $to = env('MY_EMAIL_ADDRESS',null);
+        Mail::to($to)->send(new SendMailable($request));
         return view('contact.complete');
     }
 
