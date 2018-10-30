@@ -69,4 +69,25 @@ class Validate
             return $validator->messages();
         }
     }
+
+    /**
+     * Validate contact forme
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function validateContact($request){
+        return $this->_validateContact($request);
+    }
+    private function _validateContact($request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'email' => 'required|email',
+            'subject' => 'max:255',
+            'message' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return $validator->messages();
+        }
+    }
+
 }
