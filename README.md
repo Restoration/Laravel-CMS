@@ -13,10 +13,12 @@ This CMS is using Laravel that was made by basic system.
 ## Install  
 ```
 $ git clone https://github.com/Restoration/Laravel-CMS.git
-$ cd Laravel-CMS
+$ cd Laravel-CMS/app
 $ cp env.example .env
 $ vim .env # Refer bellow setting for MySQL connect
+$ cd ../
 $ docker-compose up
+# Open new terminal
 $ docker-compose exec app bash 
 $ php artisan migrate
 ```
