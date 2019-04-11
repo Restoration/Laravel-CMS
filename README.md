@@ -1,4 +1,4 @@
-# Laravel-CMS
+# Laravel-Boilerplate
 
 ## Description  
 This CMS is using Laravel that was made by basic system.
@@ -12,8 +12,8 @@ This CMS is using Laravel that was made by basic system.
 
 ## Install  
 ```
-$ git clone https://github.com/Restoration/Laravel-CMS.git
-$ cd Laravel-CMS/app
+$ git clone https://github.com/Restoration/Laravel-Boilerplate.git
+$ cd Laravel-Boilerplate/app
 $ cp env.example .env
 $ vim .env # Refer bellow setting for MySQL connect
 $ cd ../
@@ -34,7 +34,7 @@ DB_PASSWORD=password
 ```
 
 ## License  
-[MIT](https://github.com/Restoration/Laravel-CMS/blob/master/LICENSE)
+[MIT](https://github.com/Restoration/Laravel-Boilerplate/blob/master/LICENSE)
 
 ## Author  
 RyotArch(http://www.developer-ryota.com)  
