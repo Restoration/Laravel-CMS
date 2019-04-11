@@ -10,6 +10,7 @@ services:
       - ./docker/web/default.conf:/etc/nginx/conf.d/default.conf
       - .:/var/www/html
   app:
+    build: ./docker/php
     image: php:7.2-fpm
     depends_on:
     - mysql
@@ -23,7 +24,7 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
     ports:
-      - "3306:3306"
+      - "5000:5000"
     volumes:
       - mysql-data:/var/lib/mysql
 volumes:
