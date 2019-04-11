@@ -14,13 +14,27 @@ This CMS is using Laravel that was made by basic system.
 ```
 $ git clone https://github.com/Restoration/Laravel-CMS.git
 $ cd Laravel-CMS/app
-$ vim .env # setting environment, connect database
+$ cp env.example .env
+$ vim .env # Refer bellow setting for MySQL connect
+$ cd ../
+$ docker-compose up
+# Open new terminal
+$ docker-compose exec app bash 
 $ php artisan migrate
+```
+
+.env Setting to connect MySQL
+```
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=sample
+DB_USERNAME=user
+DB_PASSWORD=password
 ```
 
 ## License  
 [MIT](https://github.com/Restoration/Laravel-CMS/blob/master/LICENSE)
 
 ## Author  
-Ryota Yamamoto(http://developer-ryota.com)  
-[RyotArch](https://github.com/Restoration)  
+RyotArch(http://www.developer-ryota.com)  
