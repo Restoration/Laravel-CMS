@@ -95,7 +95,7 @@ class Validate
     }
     private function _validateCategory($request){
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|unique:categories',
         ]);
         if ($validator->fails()) {
             return $validator->messages();
