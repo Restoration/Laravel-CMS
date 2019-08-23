@@ -32,6 +32,8 @@ Route::get('/file/add', 'FileController@add');
 Route::post('/file/upload', 'FileController@upload');
 Route::get('/file/edit/{id}', 'FileController@edit');
 Route::post('/file/delete', 'FileController@delete');
+// Category
+Route::get('/category/index', 'CategoryController@index');
 // Contact
 Route::get('/contact/index', 'ContactController@index');
 Route::post('/contact/send', 'ContactController@send');
