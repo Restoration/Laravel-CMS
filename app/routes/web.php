@@ -34,6 +34,13 @@ Route::get('/file/edit/{id}', 'FileController@edit');
 Route::post('/file/delete', 'FileController@delete');
 // Category
 Route::get('/category/index', 'CategoryController@index');
+Route::get('/category', 'CategoryController@index');
+Route::get('/category/create', 'CategoryController@create');
+Route::post('/category/create', 'CategoryController@store');
+Route::get('/category/edit/{id}', 'CategoryController@edit');
+Route::get('/category/delete/{id}', 'CategoryController@confirm');
+Route::post('/category/delete', 'CategoryController@delete');
+
 // Contact
 Route::get('/contact/index', 'ContactController@index');
 Route::post('/contact/send', 'ContactController@send');
