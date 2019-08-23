@@ -9,6 +9,7 @@ This CMS is using Laravel that was made by basic system.
 - CRUD
 - File Upload
 - Contact
+- Category
 
 ## Install  
 ```

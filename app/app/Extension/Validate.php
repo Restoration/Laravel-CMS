@@ -90,4 +90,16 @@ class Validate
         }
     }
 
+    public function validateCategory($request){
+        return $this->_validateCategory($request);
+    }
+    private function _validateCategory($request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255|unique:categories',
+        ]);
+        if ($validator->fails()) {
+            return $validator->messages();
+        }
+        return "";
+    }
 }
