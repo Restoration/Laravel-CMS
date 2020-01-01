@@ -15,13 +15,15 @@ This CMS is using Laravel that was made by basic system.
 ```
 $ git clone https://github.com/Restoration/Laravel-Boilerplate.git
 $ cd Laravel-Boilerplate/app
-$ cp env.example .env
+$ cp .env.example .env
 $ vim .env # Refer bellow setting for MySQL connect
+$ php artisan key:generate
 $ cd ../
 $ docker-compose up
 # Open new terminal
 $ docker-compose exec app bash 
 $ php artisan migrate
+$ php artisan db:seed
 ```
 
 .env Setting to connect MySQL
@@ -38,4 +40,4 @@ DB_PASSWORD=password
 [MIT](https://github.com/Restoration/Laravel-Boilerplate/blob/master/LICENSE)
 
 ## Author  
-RyotArch(http://www.developer-ryota.com)  
+RyotArch(https://www.developer-ryota.com)  
