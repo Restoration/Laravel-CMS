@@ -7,6 +7,12 @@ use Validator;
 
 class Validate
 {
+
+    /**
+     * Validate article form
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function validateArticle($request){
         return $this->_validateArticle($request);
     }
@@ -71,7 +77,7 @@ class Validate
     }
 
     /**
-     * Validate contact forme
+     * Validate contact form
      *
      * @return \Illuminate\Http\Response
      */
@@ -90,6 +96,12 @@ class Validate
         }
     }
 
+
+    /**
+     * Validate category form
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function validateCategory($request){
         return $this->_validateCategory($request);
     }
