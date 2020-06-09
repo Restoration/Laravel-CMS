@@ -12,6 +12,7 @@ This CMS is using Laravel that was made by basic system.
 - Category
 
 ## Install  
+Build Laravel app
 ```
 $ git clone https://github.com/Restoration/Laravel-Boilerplate.git
 $ cd Laravel-Boilerplate/app
@@ -20,8 +21,12 @@ $ vim .env # Refer bellow setting for MySQL connect
 $ php artisan key:generate
 $ cd ../
 $ docker-compose up
-# Open new terminal
+```
+
+Please open new terminal.
+```
 $ docker-compose exec app bash 
+$ cd app
 $ php artisan migrate
 $ php artisan db:seed
 ```
